@@ -1,0 +1,5 @@
+killing port manually commands
+
+netstat -ano|findstr <port number>
+
+taskkill /pid <pid number> /f
