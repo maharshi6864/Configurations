@@ -1,0 +1,3 @@
+command to install toolkit
+
+npm install @reduxjs/toolkit
