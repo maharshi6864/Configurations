@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jwtExample.jwt.model.UserVo;
@@ -27,9 +29,16 @@ public class UserController {
         return this.userServices.getAllUsers();
     }
 
-    @GetMapping(value="/current-user")
+    @GetMapping(value="/currentUser")
     public String getCurrentUser(Principal principal) {
         return principal.getName();
+    }
+
+    @PostMapping(value = "/addUser")
+    public String addUser(@RequestBody UserVo user)
+    {
+        this.userServices.addUsers(user);
+        return "User Added Successfully";
     }
 
 }
